@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">en-PiT_Project</string>
+    <string name="camera">さつえい</string>
+    <string name="encyclopedia">ずかん</string>
 </resources>
