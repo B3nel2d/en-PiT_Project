@@ -2,6 +2,8 @@ package it.muroran.en_pit_project;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class zukanActivity extends AppCompatActivity {
 
@@ -9,15 +11,15 @@ public class zukanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zukan);
-        /*
-        Button backButton = findViewById(R.id.return_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
+
+        ImageButton contentButton = findViewById(R.id.contentImageButton1);
+        contentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                setContentView(R.layout.content1);
             }
         });
-        */
+
     }
-    
+
 }
