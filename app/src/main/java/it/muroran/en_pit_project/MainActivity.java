@@ -14,8 +14,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ずかんが押された時の処理
-    public void zukanTapped(View view){
-            Intent intent = new Intent(this, zukanActivity.class);
-            startActivityForResult(intent,0);
-        }
+    public void zukanTapped(View view) {
+        Intent intent = new Intent(this, zukanActivity.class);
+        startActivityForResult(intent,0);
     }
+
+}
