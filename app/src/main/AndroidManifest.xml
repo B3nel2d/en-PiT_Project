@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.muroran.en_pit_project">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />//カメラの使用を許可
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
