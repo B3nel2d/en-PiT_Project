@@ -101,7 +101,7 @@ public class CameraCaptureActivity extends android.app.Activity
     /** Camera.AutoFocusCallback */
     @Override
     public void onAutoFocus(boolean success, Camera camera) {
-       // if (success)
+         if (success)
             camera.setOneShotPreviewCallback(this);
     }
 
