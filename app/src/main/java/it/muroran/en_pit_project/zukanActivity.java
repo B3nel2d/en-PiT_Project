@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class zukanActivity extends AppCompatActivity {
 
@@ -12,7 +13,7 @@ public class zukanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zukan);
 
-        ImageButton contentButton = findViewById(R.id.contentImageButton1);
+        ImageView contentButton = findViewById(R.id.imageView1);
         contentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
