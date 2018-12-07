@@ -13,13 +13,13 @@ public class zukanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zukan);
 
-        ImageView contentButton = findViewById(R.id.imageView1);
-        contentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.content1);
-            }
-        });
+        //ImageView contentButton = findViewById(R.id.imageView1);
+        //contentButton.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        setContentView(R.layout.content1);
+        //   }
+        //});
 
     }
 
