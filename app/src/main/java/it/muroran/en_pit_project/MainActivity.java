@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;//ボタン利用のため追加
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     // ずかんがタップされた時の処理
     public void zukanTapped(View view) {
-        Intent intent = new Intent(this, zukanActivity.class);
+        Intent intent = new Intent(this, EncyclopediaActivity.class);
         startActivityForResult(intent, 0);
     }
 
