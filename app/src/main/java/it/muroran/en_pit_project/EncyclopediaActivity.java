@@ -16,9 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class EncyclopediaActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class EncyclopediaActivity extends AppCompatActivity implements View.OnClickListener{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -51,10 +54,26 @@ public class EncyclopediaActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
-
+        findViewById(R.id.imageView1).setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View view){
+        if(view == null){
+            return;
+        }
+
+        switch(view.getId()){
+            case R.id.imageView1:
+                if(AppManager.getInstance().fishes.get(0).isCaptured()){
+                    setContentView(R.layout.content1);
+                    TextView contentName = findViewById(R.id.contentName);
+                    contentName.setText(AppManager.getInstance().fishes.get(0).getName());
+                }
+
+                break;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
