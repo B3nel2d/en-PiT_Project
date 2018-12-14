@@ -2,6 +2,11 @@ package it.muroran.en_pit_project;
 
 public class Fish{
 
+    private String id;
+    public String getId(){
+        return id;
+    }
+
     private String name;
     public String getName(){
         return name;
@@ -35,7 +40,8 @@ public class Fish{
     public Fish(){
         captured = false;
     }
-    public Fish(String name, String family, int size, String description){
+    public Fish(String id, String name, String family, int size, String description){
+        this.id = id;
         this.name = name;
         this.family = family;
         this.size = size;

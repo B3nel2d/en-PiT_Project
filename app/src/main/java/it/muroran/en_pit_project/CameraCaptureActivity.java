@@ -143,6 +143,13 @@ public class CameraCaptureActivity extends android.app.Activity
         MultiFormatReader reader = new MultiFormatReader();
         try {
             Result result = reader.decode(bitmap);
+            for (int index = 0; index < AppManager.getInstance().fishes.size(); index ++) {
+                if(AppManager.getInstance().fishes.get(index).getId() == result.getText()){
+                    if(!AppManager.getInstance().fishes.get(index).isCaptured()){
+                        AppManager.getInstance().fishes.get(index).setCaptured(true);
+                    }
+                }
+            }
             Toast.makeText(this, result.getText(), Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             Toast.makeText(this, "error: " + e.getMessage(), Toast.LENGTH_LONG).show();
