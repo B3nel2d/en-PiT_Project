@@ -144,7 +144,7 @@ public class CameraCaptureActivity extends android.app.Activity
         try {
             Result result = reader.decode(bitmap);
             for (int index = 0; index < AppManager.getInstance().fishes.size(); index ++) {
-                if(AppManager.getInstance().fishes.get(index).getId() == result.getText()){
+                if(AppManager.getInstance().fishes.get(index).getId().equals(result.getText())){
                     if(!AppManager.getInstance().fishes.get(index).isCaptured()){
                         AppManager.getInstance().fishes.get(index).setCaptured(true);
                     }

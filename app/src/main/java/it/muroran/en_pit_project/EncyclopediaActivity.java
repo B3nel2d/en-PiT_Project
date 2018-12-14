@@ -1,5 +1,6 @@
 package it.muroran.en_pit_project;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class EncyclopediaActivity extends AppCompatActivity implements View.OnClickListener{
+public class EncyclopediaActivity extends AppCompatActivity{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -53,26 +54,27 @@ public class EncyclopediaActivity extends AppCompatActivity implements View.OnCl
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        findViewById(R.id.imageView1).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view){
-        if(view == null){
-            return;
-        }
-
-        switch(view.getId()){
-            case R.id.imageView1:
-                if(AppManager.getInstance().fishes.get(0).isCaptured()){
-                    setContentView(R.layout.content1);
-                    TextView contentName = findViewById(R.id.contentName);
-                    contentName.setText(AppManager.getInstance().fishes.get(0).getName());
+        /*
+        findViewById(R.id.imageView1).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(view == null){
+                    return;
                 }
 
-                break;
-        }
+                switch(view.getId()){
+                    case R.id.imageView1:
+                        if(AppManager.getInstance().fishes.get(0).isCaptured()){
+                            setContentView(R.layout.content1);
+                            TextView contentName = findViewById(R.id.contentName);
+                            contentName.setText(AppManager.getInstance().fishes.get(0).getName());
+                        }
+
+                        break;
+                }
+            }
+        });
+        */
     }
 
     @Override
@@ -155,4 +157,13 @@ public class EncyclopediaActivity extends AppCompatActivity implements View.OnCl
             return 5;
         }
     }
+
+    public void onButtonTapped(View view) {
+        if(AppManager.getInstance().fishes.get(0).isCaptured()){
+            setContentView(R.layout.content1);
+            TextView contentName = findViewById(R.id.contentName);
+            contentName.setText(AppManager.getInstance().fishes.get(0).getName());
+        }
+    }
+
 }
