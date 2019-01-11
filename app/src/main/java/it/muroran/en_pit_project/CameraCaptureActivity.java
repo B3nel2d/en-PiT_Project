@@ -150,7 +150,7 @@ public class CameraCaptureActivity extends android.app.Activity
                     }
                 }
             }
-            Toast.makeText(this, result.getText(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this,  "ノドグロをつかまえた " , Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             Toast.makeText(this, "error: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }

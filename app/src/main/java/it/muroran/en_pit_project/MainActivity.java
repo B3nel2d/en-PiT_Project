@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     // ずかんがタップされた時の処理
     public void zukanTapped(View view) {
-        Intent intent = new Intent(this, EncyclopediaActivity.class);
+        Intent intent = new Intent(this, EncyclopediaActivity2.class);
         startActivityForResult(intent, 0);
     }
 

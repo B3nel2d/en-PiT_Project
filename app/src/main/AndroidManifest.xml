@@ -10,11 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+
         <activity android:name=".CameraCaptureActivity" />
-        <activity android:name=".zukanActivity">
+        <activity
+            android:exported="true"
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EncyclopediaActivity"
+            android:name=".EncyclopediaActivity2"
             android:label="@string/title_activity_encyclopedia"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

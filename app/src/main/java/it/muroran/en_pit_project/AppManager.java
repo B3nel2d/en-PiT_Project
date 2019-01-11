@@ -12,7 +12,7 @@ public class AppManager{
     /**************************************************/
 
     public AppManager(){
-        fishes.add(new Fish("SALMON", "Salmon", "Salmonidae", 70, "So Tasty, Babe."));
+        fishes.add(new Fish("enpit", "Salmon", "Salmonidae", 70, "So Tasty, Babe."));
     }
 
     /**************************************************/
