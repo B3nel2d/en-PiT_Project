@@ -17,8 +17,8 @@ public class Fish{
         return family;
     }
 
-    private int size;
-    public  int getSize(){
+    private String size;
+    public String getSize(){
         return size;
     }
 
@@ -40,7 +40,7 @@ public class Fish{
     public Fish(){
         captured = false;
     }
-    public Fish(String id, String name, String family, int size, String description){
+    public Fish(String id, String name, String family, String size, String description){
         this.id = id;
         this.name = name;
         this.family = family;

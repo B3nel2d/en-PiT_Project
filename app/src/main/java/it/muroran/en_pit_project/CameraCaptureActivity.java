@@ -21,6 +21,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class CameraCaptureActivity extends android.app.Activity
@@ -143,10 +144,30 @@ public class CameraCaptureActivity extends android.app.Activity
         MultiFormatReader reader = new MultiFormatReader();
         try {
             Result result = reader.decode(bitmap);
-            for (int index = 0; index < AppManager.getInstance().fishes.size(); index ++) {
+            for(int index = 0; index < AppManager.getInstance().fishes.size(); index ++){
                 if(AppManager.getInstance().fishes.get(index).getId().equals(result.getText())){
                     if(!AppManager.getInstance().fishes.get(index).isCaptured()){
                         AppManager.getInstance().fishes.get(index).setCaptured(true);
+
+                        ImageView contentImage = null;
+                        switch(AppManager.getInstance().fishes.get(index).getId()){
+                            case "StoneFlounder":
+                                contentImage = findViewById(R.id.imageView1);
+                                contentImage.setImageResource(R.drawable.ishigarei);
+                                break;
+                            case "SeaRaven":
+                                contentImage = findViewById(R.id.imageView2);
+                                contentImage.setImageResource(R.drawable.kemushikajika);
+                                break;
+                            case "AlaskaPollock":
+                                contentImage = findViewById(R.id.imageView3);
+                                contentImage.setImageResource(R.drawable.suketodara);
+                                break;
+                            case "RedKingCrab":
+                                contentImage = findViewById(R.id.imageView4);
+                                contentImage.setImageResource(R.drawable.tarabagani);
+                                break;
+                        }
                     }
                 }
             }
