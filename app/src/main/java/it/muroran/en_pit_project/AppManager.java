@@ -12,11 +12,7 @@ public class AppManager{
     /**************************************************/
 
     public AppManager(){
-        fishes.add(new Fish("StoneFlounder", "イシガレイ", "しゅるい：カレイか", "おおきさ：30～40cm", "せつめい：からだのいちぶにいしのようなほねがある"));
-        fishes.add(new Fish("SeaRaven", "ケムシカジカ", "しゅるい：ケムシカジカか", "おおきさ：40cm", "せつめい：せなかにほそいトゲがたくさんある"));
-        fishes.add(new Fish("AlaskaPollock", "スケトウダラ", "しゅるい：タラか", "おおきさ：60cm", "せつめい：タラコ や めんたいこ のおかあさん"));
-        fishes.add(new Fish("RedKingCrab", "タラバガニ", "しゅるい：タラバガニか", "おおきさ：10cm", "せつめい：カニだけどヤドカリのなかまでもある"));
-        //fishes.add(new Fish("", "", "しゅるい：", "おおきさ：", "せつめい："));
+        fishes.add(new Fish("SALMON", "Salmon", "Salmonidae", 70, "So Tasty, Babe."));
     }
 
     /**************************************************/
