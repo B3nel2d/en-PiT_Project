@@ -16,12 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Gravity;
 
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import org.w3c.dom.Text;
 
@@ -57,6 +54,27 @@ public class EncyclopediaActivity extends AppCompatActivity{
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        /*
+        findViewById(R.id.imageView1).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(view == null){
+                    return;
+                }
+
+                switch(view.getId()){
+                    case R.id.imageView1:
+                        if(AppManager.getInstance().fishes.get(0).isCaptured()){
+                            setContentView(R.layout.content1);
+                            TextView contentName = findViewById(R.id.contentName);
+                            contentName.setText(AppManager.getInstance().fishes.get(0).getName());
+                        }
+
+                        break;
+                }
+            }
+        });
+        */
     }
 
     @Override
@@ -111,7 +129,7 @@ public class EncyclopediaActivity extends AppCompatActivity{
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_encyclopedia, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }
@@ -136,50 +154,15 @@ public class EncyclopediaActivity extends AppCompatActivity{
         @Override
         public int getCount() {
             // ページ数を変更
-            return 2;
+            return 5;
         }
     }
 
     public void onButtonTapped(View view) {
-        if(view == null){
-            return;
-        }
-
-        Fish content = null;
-        int imageId = 0;
-        switch(view.getId()){
-            case R.id.imageView1:
-                content = AppManager.getInstance().fishes.get(0);
-                imageId = R.drawable.ishigarei;
-                break;
-            case R.id.imageView2:
-                content = AppManager.getInstance().fishes.get(1);
-                imageId = R.drawable.kemushikajika;
-                break;
-            case R.id.imageView3:
-                content = AppManager.getInstance().fishes.get(2);
-                imageId = R.drawable.suketodara;
-                break;
-            case R.id.imageView4:
-                content = AppManager.getInstance().fishes.get(3);
-                imageId = R.drawable.tarabagani;
-                break;
-        }
-
-        if(content != null && content.isCaptured()){
+        if(AppManager.getInstance().fishes.get(0).isCaptured()){
             setContentView(R.layout.content1);
-
             TextView contentName = findViewById(R.id.contentName);
-            ImageView contentImage = findViewById(R.id.contentImage);
-            TextView contentFamily = findViewById(R.id.contentFamily);
-            TextView contentSize = findViewById(R.id.contentSize);
-            TextView contentDescription = findViewById(R.id.contentDescription);
-
-            contentName.setText(content.getName());
-            contentImage.setImageResource(imageId);
-            contentFamily.setText(content.getFamily());
-            contentSize.setText(content.getSize());
-            contentDescription.setText(content.getDescription());
+            contentName.setText(AppManager.getInstance().fishes.get(0).getName());
         }
     }
 
