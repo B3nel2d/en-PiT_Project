@@ -144,6 +144,7 @@ public class CameraCaptureActivity extends android.app.Activity
         MultiFormatReader reader = new MultiFormatReader();
         try {
             Result result = reader.decode(bitmap);
+            String contentName = "";
             for(int index = 0; index < AppManager.getInstance().fishes.size(); index ++){
                 if(AppManager.getInstance().fishes.get(index).getId().equals(result.getText())){
                     if(!AppManager.getInstance().fishes.get(index).isCaptured()){
@@ -154,18 +155,22 @@ public class CameraCaptureActivity extends android.app.Activity
                             case "StoneFlounder":
                                 contentImage = findViewById(R.id.imageView1);
                                 contentImage.setImageResource(R.drawable.ishigarei);
+                                contentName = "イシガレイ";
                                 break;
                             case "SeaRaven":
                                 contentImage = findViewById(R.id.imageView2);
                                 contentImage.setImageResource(R.drawable.kemushikajika);
+                                contentName = "ケムシカジカ";
                                 break;
                             case "AlaskaPollock":
                                 contentImage = findViewById(R.id.imageView3);
                                 contentImage.setImageResource(R.drawable.suketodara);
+                                contentName = "スケトウダラ";
                                 break;
                             case "RedKingCrab":
                                 contentImage = findViewById(R.id.imageView4);
                                 contentImage.setImageResource(R.drawable.tarabagani);
+                                contentName = "タラバガニ";
                                 break;
                         }
                     }
