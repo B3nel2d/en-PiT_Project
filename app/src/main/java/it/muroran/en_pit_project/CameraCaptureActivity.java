@@ -21,6 +21,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class CameraCaptureActivity extends android.app.Activity
@@ -172,10 +173,6 @@ public class CameraCaptureActivity extends android.app.Activity
                                 contentName = "タラバガニ";
                                 break;
                         }
-            for (int index = 0; index < AppManager.getInstance().fishes.size(); index ++) {
-                if(AppManager.getInstance().fishes.get(index).getId().equals(result.getText())){
-                    if(!AppManager.getInstance().fishes.get(index).isCaptured()){
-                        AppManager.getInstance().fishes.get(index).setCaptured(true);
                     }
                 }
             }
