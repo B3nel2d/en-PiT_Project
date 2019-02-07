@@ -150,19 +150,19 @@ public class EncyclopediaActivity extends AppCompatActivity{
         switch(view.getId()){
             case R.id.imageView1:
                 content = AppManager.getInstance().fishes.get(0);
-                imageId = R.drawable.ishigarei;
+                imageId = R.drawable.stoneflounder;
                 break;
             case R.id.imageView2:
                 content = AppManager.getInstance().fishes.get(1);
-                imageId = R.drawable.kemushikajika;
+                imageId = R.drawable.searaven;
                 break;
             case R.id.imageView3:
                 content = AppManager.getInstance().fishes.get(2);
-                imageId = R.drawable.suketodara;
+                imageId = R.drawable.alaskapollock;
                 break;
             case R.id.imageView4:
                 content = AppManager.getInstance().fishes.get(3);
-                imageId = R.drawable.tarabagani;
+                imageId = R.drawable.redkingcrab;
                 break;
         }
 

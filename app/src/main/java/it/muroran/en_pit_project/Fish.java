@@ -2,8 +2,8 @@ package it.muroran.en_pit_project;
 
 public class Fish{
 
-    private String id;
-    public String getId(){
+    private int id;
+    public int getId(){
         return id;
     }
 
@@ -40,7 +40,7 @@ public class Fish{
     public Fish(){
         captured = false;
     }
-    public Fish(String id, String name, String family, String size, String description){
+    public Fish(int id, String name, String family, String size, String description){
         this.id = id;
         this.name = name;
         this.family = family;

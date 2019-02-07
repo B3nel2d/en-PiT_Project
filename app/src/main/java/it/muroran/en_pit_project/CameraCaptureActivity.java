@@ -10,9 +10,11 @@ import com.google.zxing.common.HybridBinarizer;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.app.AlertDialog;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -23,6 +25,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import static java.lang.Integer.parseInt;
 
 public class CameraCaptureActivity extends android.app.Activity
         implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera.AutoFocusCallback {
@@ -145,38 +149,57 @@ public class CameraCaptureActivity extends android.app.Activity
         try {
             Result result = reader.decode(bitmap);
             String contentName = "";
+            int fishId = 0;
             for(int index = 0; index < AppManager.getInstance().fishes.size(); index ++){
-                if(AppManager.getInstance().fishes.get(index).getId().equals(result.getText())){
+                //魚のIDと合致
+                if(AppManager.getInstance().fishes.get(index).getId() == (parseInt(result.getText()))){
                     if(!AppManager.getInstance().fishes.get(index).isCaptured()){
                         AppManager.getInstance().fishes.get(index).setCaptured(true);
 
                         ImageView contentImage = null;
                         switch(AppManager.getInstance().fishes.get(index).getId()){
-                            case "StoneFlounder":
+                            case R.drawable.stoneflounder:
                                 contentImage = findViewById(R.id.imageView1);
-                                contentImage.setImageResource(R.drawable.ishigarei);
+                                contentImage.setImageResource(R.drawable.stoneflounder);
                                 contentName = "イシガレイ";
+                                fishId = R.drawable.stoneflounder;
                                 break;
-                            case "SeaRaven":
+                            case R.drawable.searaven:
                                 contentImage = findViewById(R.id.imageView2);
-                                contentImage.setImageResource(R.drawable.kemushikajika);
+                                contentImage.setImageResource(R.drawable.searaven);
                                 contentName = "ケムシカジカ";
+                                fishId = R.drawable.searaven;
                                 break;
-                            case "AlaskaPollock":
+                            case R.drawable.alaskapollock:
                                 contentImage = findViewById(R.id.imageView3);
-                                contentImage.setImageResource(R.drawable.suketodara);
+                                contentImage.setImageResource(R.drawable.alaskapollock);
                                 contentName = "スケトウダラ";
+                                fishId = R.drawable.alaskapollock;
                                 break;
-                            case "RedKingCrab":
+                            case R.drawable.redkingcrab:
                                 contentImage = findViewById(R.id.imageView4);
-                                contentImage.setImageResource(R.drawable.tarabagani);
+                                contentImage.setImageResource(R.drawable.redkingcrab);
                                 contentName = "タラバガニ";
+                                fishId = R.drawable.redkingcrab;
+
                                 break;
                         }
                     }
+
                 }
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("今からアプリを起動してもいいですか？")
+                        .setTitle("ドロイド君より")
+                        .setIcon(fishId)
+                                //result.getText().toLowerCase( ))
+                        .setPositiveButton("起動", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+// ボタンをクリックしたときの動作
+                            }
+                        });
+                builder.show();
             }
-            Toast.makeText(this, result.getText(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, result.getText(), Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             Toast.makeText(this, "error: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
