@@ -182,5 +182,8 @@ public class EncyclopediaActivity extends AppCompatActivity{
             contentDescription.setText(content.getDescription());
         }
     }
+    public void returnTapped(View view) {
+        setContentView(R.layout.fragment_encyclopedia);
+    }
 
 }
