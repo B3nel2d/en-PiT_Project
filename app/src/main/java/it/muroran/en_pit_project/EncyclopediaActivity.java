@@ -110,7 +110,7 @@ public class EncyclopediaActivity extends AppCompatActivity{
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_encyclopedia, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
@@ -181,6 +181,10 @@ public class EncyclopediaActivity extends AppCompatActivity{
             contentSize.setText(content.getSize());
             contentDescription.setText(content.getDescription());
         }
+    }
+
+    public void returnTapped(View view) {
+        setContentView(R.layout.fragment_encyclopedia);
     }
 
 }
