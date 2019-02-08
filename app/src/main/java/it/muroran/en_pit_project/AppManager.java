@@ -12,17 +12,52 @@ public class AppManager{
     /**************************************************/
 
     public AppManager(){
-        fishes.add(new Fish(R.drawable.stoneflounder, "イシガレイ", "しゅるい：カレイか", "おおきさ：30～40cm", "せつめい：からだのいちぶにいしのようなほねがある"));
-        fishes.add(new Fish(R.drawable.searaven, "ケムシカジカ", "しゅるい：ケムシカジカか", "おおきさ：40cm", "せつめい：せなかにほそいトゲがたくさんある"));
-        fishes.add(new Fish(R.drawable.alaskapollock, "スケトウダラ", "しゅるい：タラか", "おおきさ：60cm", "せつめい：タラコ や めんたいこ のおかあさん"));
-        fishes.add(new Fish(R.drawable.redkingcrab, "タラバガニ", "しゅるい：タラバガニか", "おおきさ：10cm", "せつめい：カニだけどヤドカリのなかまでもある"));
-        //fishes.add(new Fish(, "", "しゅるい：", "おおきさ：", "せつめい："));
-
+        fishes.add(new Fish(
+                "イシガレイ",
+                "しゅるい：カレイか",
+                "おおきさ：30～40cm",
+                "せつめい：からだのいちぶにいしのようなほねがある",
+                R.drawable.stoneflounder,
+                R.id.textView1,
+                R.id.imageView1
+        ));
+        fishes.add(new Fish(
+                "ケムシカジカ",
+                "しゅるい：ケムシカジカか",
+                "おおきさ：40cm",
+                "せつめい：せなかにほそいトゲがたくさんある",
+                R.drawable.searaven,
+                R.id.textView2,
+                R.id.imageView2
+        ));
+        fishes.add(new Fish(
+                "スケトウダラ",
+                "しゅるい：タラか",
+                "おおきさ：60cm",
+                "せつめい：タラコ や めんたいこ のおかあさん",
+                R.drawable.alaskapollock,
+                R.id.textView3,
+                R.id.imageView3
+        ));
+        fishes.add(new Fish(
+                "タラバガニ",
+                "しゅるい：タラバガニか",
+                "おおきさ：10cm",
+                "せつめい：カニだけどヤドカリのなかまでもある",
+                R.drawable.redkingcrab,
+                R.id.textView4,
+                R.id.imageView4
+        ));
         /*
-        fishes.add(new Fish("SeaRaven", "ケムシカジカ", "しゅるい：ケムシカジカか", "おおきさ：40cm", "せつめい：せなかにほそいトゲがたくさんある"));
-        fishes.add(new Fish("AlaskaPollock", "スケトウダラ", "しゅるい：タラか", "おおきさ：60cm", "せつめい：タラコ や めんたいこ のおかあさん"));
-        fishes.add(new Fish("RedKingCrab", "タラバガニ", "しゅるい：タラバガニか", "おおきさ：10cm", "せつめい：カニだけどヤドカリのなかまでもある"));
-        fishes.add(new Fish("", "", "しゅるい：", "おおきさ：", "せつめい："));
+        fishes.add(new Fish(
+                "",
+                "しゅるい:",
+                "おおきさ:",
+                "せつめい:",
+                0,
+                0,
+                0
+        ));
         */
     }
 

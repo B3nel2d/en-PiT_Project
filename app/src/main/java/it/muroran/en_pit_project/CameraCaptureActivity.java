@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static java.lang.Integer.parseInt;
@@ -146,62 +147,61 @@ public class CameraCaptureActivity extends android.app.Activity
 
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
         MultiFormatReader reader = new MultiFormatReader();
-        try {
+
+        try{
             Result result = reader.decode(bitmap);
-            String contentName = "";
-            int fishId = 0;
-            for(int index = 0; index < AppManager.getInstance().fishes.size(); index ++){
-                //魚のIDと合致
-                if(AppManager.getInstance().fishes.get(index).getId() == (parseInt(result.getText()))){
-                    if(!AppManager.getInstance().fishes.get(index).isCaptured()){
-                        AppManager.getInstance().fishes.get(index).setCaptured(true);
+            String title = "";
+            String message = "";
+            TextView textView = null;
+            ImageView imageView = null;
+            int imageId = 0;
 
-                        ImageView contentImage = null;
-                        switch(AppManager.getInstance().fishes.get(index).getId()){
-                            case R.drawable.stoneflounder:
-                                contentImage = findViewById(R.id.imageView1);
-                                contentImage.setImageResource(R.drawable.stoneflounder);
-                                contentName = "イシガレイ";
-                                fishId = R.drawable.stoneflounder;
-                                break;
-                            case R.drawable.searaven:
-                                contentImage = findViewById(R.id.imageView2);
-                                contentImage.setImageResource(R.drawable.searaven);
-                                contentName = "ケムシカジカ";
-                                fishId = R.drawable.searaven;
-                                break;
-                            case R.drawable.alaskapollock:
-                                contentImage = findViewById(R.id.imageView3);
-                                contentImage.setImageResource(R.drawable.alaskapollock);
-                                contentName = "スケトウダラ";
-                                fishId = R.drawable.alaskapollock;
-                                break;
-                            case R.drawable.redkingcrab:
-                                contentImage = findViewById(R.id.imageView4);
-                                contentImage.setImageResource(R.drawable.redkingcrab);
-                                contentName = "タラバガニ";
-                                fishId = R.drawable.redkingcrab;
+            for(Fish fish : AppManager.getInstance().fishes){
+                if(fish.getName().equals(result.getText())){
+                    if(!fish.isCaptured()){
+                        fish.setCaptured(true);
 
-                                break;
+                        title = "やったぞ！";
+                        message = fish.getName() + "をみつけた！";
+                        try{
+                            textView = findViewById(fish.getTextViewId());
+                            imageView = findViewById(fish.getImageViewId());
+
+                            textView.setText("");
+                            imageView.setImageResource(fish.getImageId());
+                        }
+                        catch(Exception exception){
+                            message = imageView.getId() + "";
+                        }
+                        if(imageView != null){
+
                         }
                     }
+                    else{
+                        title = "おや？";
+                        message = fish.getName() + "はもうみつけてあるみたいだ。";
+                    }
+                    imageId = fish.getImageId();
 
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage(message)
+                            .setTitle(title)
+                            .setIcon(imageId)
+                            //result.getText().toLowerCase( ))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // ボタンをクリックしたときの動作
+                                }
+                            });
+                    builder.show();
                 }
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("今からアプリを起動してもいいですか？")
-                        .setTitle("ドロイド君より")
-                        .setIcon(fishId)
-                                //result.getText().toLowerCase( ))
-                        .setPositiveButton("起動", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-// ボタンをクリックしたときの動作
-                            }
-                        });
-                builder.show();
             }
-            //Toast.makeText(this, result.getText(), Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            Toast.makeText(this, "error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            if(imageView != null){
+                imageView.setImageResource(imageId);
+            }
+        }
+        catch(Exception exception){
+            Toast.makeText(this, "error: " + exception.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
