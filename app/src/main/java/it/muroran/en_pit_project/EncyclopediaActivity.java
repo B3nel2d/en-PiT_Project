@@ -183,8 +183,4 @@ public class EncyclopediaActivity extends AppCompatActivity{
         }
     }
 
-    public void returnTapped(View view) {
-        setContentView(R.layout.fragment_encyclopedia);
-    }
-
 }
