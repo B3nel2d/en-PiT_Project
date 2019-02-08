@@ -9,7 +9,7 @@
     tools:context=".EncyclopediaActivity$PlaceholderFragment">
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView2"
         android:layout_width="440dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/sakana_fish_27220" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView1"
         android:layout_width="440dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
