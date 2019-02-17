@@ -1,6 +1,7 @@
 package it.muroran.en_pit_project;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -106,13 +107,60 @@ public class EncyclopediaActivity extends AppCompatActivity{
             return fragment;
         }
 
+        @Nullable
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_encyclopedia, container, false);
-            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+            int imageViews[] = {
+                R.id.imageView1,
+                R.id.imageView2,
+                R.id.imageView3,
+                R.id.imageView4
+            };
+
+            int textViews[] = {
+                R.id.textView1,
+                R.id.textView2,
+                R.id.textView3,
+                R.id.textView4
+            };
+
+            int resource_id = 0;
+            String text = "";
+
+            for(int index = 0; index < imageViews.length; index++){
+                if(AppManager.getInstance().fishes.get(index).isCaptured()){
+                    resource_id = AppManager.getInstance().fishes.get(index).getImageId();
+                    text = AppManager.getInstance().fishes.get(index).getName();
+                }
+                else{
+                    resource_id = R.drawable.sakana_fish_27220;
+                    text = "？？？？？";
+                }
+
+                ((ImageView)rootView.findViewById(imageViews[index])).setImageResource(resource_id);
+                ((TextView)rootView.findViewById(textViews[index])).setText(text);
+            }
+
             return rootView;
+        }
+
+        @Override
+        public void onStart(){
+            super.onStart();
+        }
+
+        @Override
+        public void onResume(){
+            super.onResume();
+        }
+
+        public void setViewContent(int id, String text){
+            //((TextView)rootView.findViewById(id)).setText(text);
+        }
+        public void setViewContent(int view_id, int image_id){
+            //((ImageView)rootView.findViewById(view_id)).setImageResource(image_id);
         }
     }
 

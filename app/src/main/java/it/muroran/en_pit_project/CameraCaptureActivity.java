@@ -150,6 +150,7 @@ public class CameraCaptureActivity extends android.app.Activity
 
         try{
             Result result = reader.decode(bitmap);
+
             String title = "";
             String message = "";
             TextView textView = null;
@@ -163,19 +164,6 @@ public class CameraCaptureActivity extends android.app.Activity
 
                         title = "やったぞ！";
                         message = fish.getName() + "をみつけた！";
-                        try{
-                            textView = findViewById(fish.getTextViewId());
-                            imageView = findViewById(fish.getImageViewId());
-
-                            textView.setText("");
-                            imageView.setImageResource(fish.getImageId());
-                        }
-                        catch(Exception exception){
-                            message = imageView.getId() + "";
-                        }
-                        if(imageView != null){
-
-                        }
                     }
                     else{
                         title = "おや？";
@@ -195,9 +183,6 @@ public class CameraCaptureActivity extends android.app.Activity
                             });
                     builder.show();
                 }
-            }
-            if(imageView != null){
-                imageView.setImageResource(imageId);
             }
         }
         catch(Exception exception){
