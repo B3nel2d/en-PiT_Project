@@ -45,10 +45,19 @@ public class Fish{
         return captured;
     }
 
+    private boolean viewed;
+    public void setViewed(boolean value){
+        viewed = value;
+    }
+    public boolean isViewed(){
+        return viewed;
+    }
+
     /**************************************************/
 
     public Fish(){
         captured = false;
+        viewed = false;
     }
     public Fish(String name, String family, String size, String description, int image_id, int textview_id, int imageview_id){
         this.name = name;
@@ -60,6 +69,7 @@ public class Fish{
         this.imageview_id = imageview_id;
 
         captured = false;
+        viewed = false;
     }
 
 }

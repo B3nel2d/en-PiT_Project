@@ -11,6 +11,7 @@ import com.google.zxing.common.HybridBinarizer;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -153,9 +154,11 @@ public class CameraCaptureActivity extends android.app.Activity
 
             String title = "";
             String message = "";
+            String buttonString = "";
             TextView textView = null;
             ImageView imageView = null;
             int imageId = 0;
+            boolean isAlreadyCaptured = false;
 
             for(Fish fish : AppManager.getInstance().fishes){
                 if(fish.getName().equals(result.getText())){
@@ -164,23 +167,33 @@ public class CameraCaptureActivity extends android.app.Activity
 
                         title = "やったぞ！";
                         message = fish.getName() + "をみつけた！";
+                        buttonString = "ずかんをみる";
                     }
                     else{
                         title = "おや？";
                         message = fish.getName() + "はもうみつけてあるみたいだ。";
+                        buttonString = "つづける";
+                        isAlreadyCaptured = true;
                     }
                     imageId = fish.getImageId();
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setMessage(message)
                             .setTitle(title)
-                            .setIcon(imageId)
-                            //result.getText().toLowerCase( ))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // ボタンをクリックしたときの動作
-                                }
-                            });
+                            .setIcon(imageId);
+                    if(!isAlreadyCaptured){
+                        builder.setPositiveButton("ずかんをみる", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(CameraCaptureActivity.this, EncyclopediaActivity.class);
+                                startActivityForResult(intent, 0);
+                            }
+                        });
+                    }
+                    builder.setNegativeButton("つづける", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
                     builder.show();
                 }
             }

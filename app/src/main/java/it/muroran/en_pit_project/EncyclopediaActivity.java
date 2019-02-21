@@ -126,15 +126,29 @@ public class EncyclopediaActivity extends AppCompatActivity{
                 R.id.textView4
             };
 
+            int newSigns[] = {
+                    R.id.newSign1,
+                    R.id.newSign2,
+                    R.id.newSign3,
+                    R.id.newSign4
+            };
+
             int resource_id = 0;
             String text = "";
 
             for(int index = 0; index < imageViews.length; index++){
                 if(AppManager.getInstance().fishes.get(index).isCaptured()){
+                    if(!AppManager.getInstance().fishes.get(index).isViewed()){
+                        ((TextView)rootView.findViewById(newSigns[index])).setVisibility(rootView.VISIBLE);
+                    }
+                    else{
+                        ((TextView)rootView.findViewById(newSigns[index])).setVisibility(rootView.INVISIBLE);
+                    }
                     resource_id = AppManager.getInstance().fishes.get(index).getImageId();
                     text = AppManager.getInstance().fishes.get(index).getName();
                 }
                 else{
+                    ((TextView)rootView.findViewById(newSigns[index])).setVisibility(rootView.INVISIBLE);
                     resource_id = R.drawable.sakana_fish_27220;
                     text = "？？？？？";
                 }
@@ -183,7 +197,7 @@ public class EncyclopediaActivity extends AppCompatActivity{
         @Override
         public int getCount() {
             // ページ数を変更
-            return 2;
+            return 1;
         }
     }
 
@@ -227,10 +241,12 @@ public class EncyclopediaActivity extends AppCompatActivity{
             contentFamily.setText(content.getFamily());
             contentSize.setText(content.getSize());
             contentDescription.setText(content.getDescription());
+            content.setViewed(true);
         }
 
     }
     public void returnTapped(View view) {
-        setContentView(R.layout.fragment_encyclopedia);
+        Intent intent = new Intent(this, EncyclopediaActivity.class);
+        startActivityForResult(intent, 0);
     }
 }

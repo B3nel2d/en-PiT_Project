@@ -14,36 +14,36 @@ public class AppManager{
     public AppManager(){
         fishes.add(new Fish(
                 "イシガレイ",
-                "しゅるい：カレイか",
-                "おおきさ：30～40cm",
-                "せつめい：からだのいちぶにいしのようなほねがある",
+                "カレイか",
+                "   おおきさ：30～40cm",
+                "   せつめい：からだのいちぶにいしのようなほねがある",
                 R.drawable.stoneflounder,
                 R.id.textView1,
                 R.id.imageView1
         ));
         fishes.add(new Fish(
                 "ケムシカジカ",
-                "しゅるい：ケムシカジカか",
-                "おおきさ：40cm",
-                "せつめい：せなかにほそいトゲがたくさんある",
+                "ケムシカジカか",
+                "   おおきさ：40cm",
+                "   せつめい：せなかにほそいトゲがたくさんある",
                 R.drawable.searaven,
                 R.id.textView2,
                 R.id.imageView2
         ));
         fishes.add(new Fish(
                 "スケトウダラ",
-                "しゅるい：タラか",
-                "おおきさ：60cm",
-                "せつめい：タラコ や めんたいこ のおかあさん",
+                "タラか",
+                "   おおきさ：60cm",
+                "   せつめい：タラコやめんたいこのおかあさん",
                 R.drawable.alaskapollock,
                 R.id.textView3,
                 R.id.imageView3
         ));
         fishes.add(new Fish(
                 "タラバガニ",
-                "しゅるい：タラバガニか",
-                "おおきさ：10cm",
-                "せつめい：カニだけどヤドカリのなかまでもある",
+                "タラバガニか",
+                "   おおきさ：10cm",
+                "   せつめい：カニだけどヤドカリのなかまでもある",
                 R.drawable.redkingcrab,
                 R.id.textView4,
                 R.id.imageView4
