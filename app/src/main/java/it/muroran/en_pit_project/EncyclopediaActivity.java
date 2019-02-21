@@ -142,7 +142,6 @@ public class EncyclopediaActivity extends AppCompatActivity{
                 ((ImageView)rootView.findViewById(imageViews[index])).setImageResource(resource_id);
                 ((TextView)rootView.findViewById(textViews[index])).setText(text);
             }
-
             return rootView;
         }
 
@@ -229,6 +228,9 @@ public class EncyclopediaActivity extends AppCompatActivity{
             contentSize.setText(content.getSize());
             contentDescription.setText(content.getDescription());
         }
-    }
 
+    }
+    public void returnTapped(View view) {
+        setContentView(R.layout.fragment_encyclopedia);
+    }
 }
